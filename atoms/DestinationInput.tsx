@@ -22,7 +22,6 @@ export const DestinationInput = ({ label, id }: DestinationInputProps) => {
       disablePortal
       id={id}
       options={airports.map(({ iata, name }) => ({ label: `${iata} ${name}` }))}
-      sx={{ width: 260 }}
       renderInput={(params) => (
         <TextField
           {...params}

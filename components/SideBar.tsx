@@ -9,14 +9,22 @@ export const SideBar = () => {
   return (
     <Paper
       variant="elevation"
-      sx={{ position: "absolute", zIndex: 2, padding: 4, margin: 4 }}
+      sx={{
+        position: "absolute",
+        zIndex: 2,
+        padding: 4,
+        margin: 4,
+        minWidth: 560,
+      }}
       elevation={8}
     >
       <TripTypeSection />
       <br />
       <DestinationsSection />
       <br />
+      <br />
       <BusinessClassSection />
+      <br />
     </Paper>
   );
 };
