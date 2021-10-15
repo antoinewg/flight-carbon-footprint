@@ -17,9 +17,6 @@ export const WorldMap = () => {
       zoom: zoom,
     });
 
-    // Add navigation control (the +/- zoom buttons)
-    map.addControl(new mapboxgl.NavigationControl(), "top-right");
-
     map.on("move", () => {
       setLng(map.getCenter().lng);
       setLat(map.getCenter().lat);
@@ -29,13 +26,5 @@ export const WorldMap = () => {
     return () => map.remove();
   }, []);
 
-  return (
-    <div className="m-8">
-      <h1>WorldMap</h1>
-      <div ref={mapContainerRef} className="h-96 w-96" />
-      <div className="sidebar">
-        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-      </div>
-    </div>
-  );
+  return <div ref={mapContainerRef} className="h-screen w-screen" />;
 };
