@@ -1,14 +1,13 @@
 import type { NextPage } from "next";
+import { SideBar } from "../components/SideBar";
 import { WorldMap } from "../components/WorldMap";
 
 const Home: NextPage = () => {
   return (
-    <>
-      <h1 className="m-8">
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
+    <div>
+      <SideBar />
       <WorldMap />
-    </>
+    </div>
   );
 };
 
