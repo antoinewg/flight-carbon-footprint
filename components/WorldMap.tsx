@@ -26,5 +26,7 @@ export const WorldMap = () => {
     return () => map.remove();
   }, []);
 
-  return <div ref={mapContainerRef} className="h-screen w-screen" />;
+  return <div ref={mapContainerRef} style={mapStyle} />;
 };
+
+const mapStyle = { height: "100vh", width: "100vw" };

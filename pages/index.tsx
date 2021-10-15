@@ -4,10 +4,10 @@ import { WorldMap } from "../components/WorldMap";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       <SideBar />
       <WorldMap />
-    </div>
+    </>
   );
 };
 
