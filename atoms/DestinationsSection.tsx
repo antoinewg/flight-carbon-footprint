@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import SwapHoriz from "@mui/icons-material/SwapHoriz";
 import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
+import Clear from "@mui/icons-material/Clear";
 import IconButton from "@mui/material/IconButton";
 
 import { DestinationInput } from "./DestinationInput";
@@ -15,6 +16,9 @@ export const DestinationsSection = () => {
 
   const handleSwap = () => {
     console.log("swapping");
+  };
+  const handleClear = () => {
+    console.log("clearing");
   };
 
   return (
@@ -30,13 +34,13 @@ export const DestinationsSection = () => {
         <DestinationInput id="from" label="From" />
       </Box>
 
-      <Box sx={{ flex: 0 }}>
+      <Box sx={flex0}>
         {state.travelType === TravelType.roundtrip ? (
           <IconButton aria-label="swap" onClick={handleSwap}>
             <SwapHoriz color="primary" fontSize="large" />
           </IconButton>
         ) : (
-          <IconButton aria-label="swap" disabled>
+          <IconButton aria-label="forward" disabled>
             <ArrowRightAlt color="primary" fontSize="large" />
           </IconButton>
         )}
@@ -45,8 +49,17 @@ export const DestinationsSection = () => {
       <Box sx={flex6}>
         <DestinationInput id="to" label="To" />
       </Box>
+
+      {state.travelType === TravelType.multicity ? (
+        <Box sx={flex0}>
+          <IconButton aria-label="clear" onClick={handleClear}>
+            <Clear color="primary" fontSize="large" />
+          </IconButton>
+        </Box>
+      ) : null}
     </Box>
   );
 };
 
+const flex0 = { flex: 0 };
 const flex6 = { flex: 6 };
