@@ -1,7 +1,7 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
 
-import BusinessClass from "../atoms/BusinessClass";
+import BusinessClassSection from "../atoms/BusinessClassSection";
 import { TripTypeSection } from "../atoms/TripTypeSection";
 import { DestinationsSection } from "../atoms/DestinationsSection";
 
@@ -16,7 +16,7 @@ export const SideBar = () => {
       <br />
       <DestinationsSection />
       <br />
-      <BusinessClass />
+      <BusinessClassSection />
     </Paper>
   );
 };

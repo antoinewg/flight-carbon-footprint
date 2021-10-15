@@ -30,7 +30,8 @@ export const initialState: State = {
 
 export type Action =
   | { type: "INIT" }
-  | { type: "SELECT_TRAVEL_TYPE"; payload: TravelType };
+  | { type: "SELECT_TRAVEL_TYPE"; payload: TravelType }
+  | { type: "SELECT_BUSINESS_CLASS"; payload: BusinessClass };
 
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -38,6 +39,8 @@ export const reducer = (state: State, action: Action): State => {
       return initialState;
     case "SELECT_TRAVEL_TYPE":
       return { ...state, travelType: action.payload };
+    case "SELECT_BUSINESS_CLASS":
+      return { ...state, businessClass: action.payload };
     default:
       return state;
   }
