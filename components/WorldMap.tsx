@@ -1,30 +1,27 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
+import { useFlightAnimation } from "./animations/useFlightAnimation";
+import { useZoomToFlights } from "./animations/useZoomToFlights";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN as string;
 
 export const WorldMap = () => {
+  const map = useRef<mapboxgl.Map | null>(null);
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
-  const [lng, setLng] = useState<number>(4);
-  const [lat, setLat] = useState<number>(50);
-  const [zoom, setZoom] = useState<number>(2);
 
   useEffect(() => {
-    const map = new mapboxgl.Map({
+    map.current = new mapboxgl.Map({
       container: mapContainerRef?.current as HTMLElement,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [lng, lat],
-      zoom: zoom,
+      center: [-96, 37.8],
+      zoom: 3,
     });
 
-    map.on("move", () => {
-      setLng(map.getCenter().lng);
-      setLat(map.getCenter().lat);
-      setZoom(map.getZoom());
-    });
-
-    return () => map.remove();
+    return () => map.current?.remove();
   }, []);
+
+  useFlightAnimation(map.current);
+  useZoomToFlights(map.current);
 
   return <div ref={mapContainerRef} style={mapStyle} />;
 };

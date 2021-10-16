@@ -23,7 +23,7 @@ export const useAirports = (query: string): Airport[] => {
   const [airports, setAirports] = useState<Airport[]>([]);
 
   const getAirports = useCallback(async (q: string) => {
-    if (!q) return;
+    if (!q || q.length < 3) return;
     try {
       const response = await axios.get<{ items: Airport[] }>(
         "https://aerodatabox.p.rapidapi.com/airports/search/term",
