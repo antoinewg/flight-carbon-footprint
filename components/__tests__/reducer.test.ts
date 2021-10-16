@@ -1,12 +1,5 @@
 import { Airport } from "@api/useAirports";
-import {
-  Action,
-  BusinessClass,
-  initialState,
-  reducer,
-  State,
-  TravelType,
-} from "../reducer";
+import { Action, initialState, reducer, State, TravelType } from "../reducer";
 
 const CDG: Airport = {
   countryCode: "FR",
@@ -77,39 +70,6 @@ describe("Search reducer", () => {
         { from: null, to: null },
         { from: null, to: null }, // Adds a flight
       ],
-    });
-  });
-
-  it("should handle SELECT_BUSINESS_CLASS - economy", () => {
-    const action: Action = {
-      type: "SELECT_BUSINESS_CLASS",
-      payload: BusinessClass.economy,
-    };
-    expect(reducer(state, action)).toStrictEqual({
-      ...initialState,
-      businessClass: BusinessClass.economy,
-    });
-  });
-
-  it("should handle SELECT_BUSINESS_CLASS - business", () => {
-    const action: Action = {
-      type: "SELECT_BUSINESS_CLASS",
-      payload: BusinessClass.business,
-    };
-    expect(reducer(state, action)).toStrictEqual({
-      ...initialState,
-      businessClass: BusinessClass.business,
-    });
-  });
-
-  it("should handle SELECT_BUSINESS_CLASS - firstclass", () => {
-    const action: Action = {
-      type: "SELECT_BUSINESS_CLASS",
-      payload: BusinessClass.firstclass,
-    };
-    expect(reducer(state, action)).toStrictEqual({
-      ...initialState,
-      businessClass: BusinessClass.firstclass,
     });
   });
 

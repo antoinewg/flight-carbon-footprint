@@ -47,9 +47,8 @@ export const FAQSection = () => {
               carbonindependent.org
             </a>{" "}
             and seems coherent with other flight carbon emission calculators. We
-            then multiply each flight time by this number and take into account
-            the business class: a first class seat takes more space than an
-            economy seat.
+            then multiply each flight time by this number. We also estimate the
+            flight time using the distance between the airports.
             <br />
             <br />
             For more information or question about this specific calculator,

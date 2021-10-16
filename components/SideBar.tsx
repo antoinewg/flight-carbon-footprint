@@ -1,7 +1,6 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
 
-import BusinessClassSection from "@atoms/BusinessClassSection";
 import { TripTypeSection } from "@atoms/TripTypeSection";
 import { DestinationsSection } from "@atoms/DestinationsSection";
 import { CarbonFootprintSection } from "@atoms/CarbonFootprintSection";
@@ -23,9 +22,6 @@ export const SideBar = () => {
       >
         <TripTypeSection />
         <DestinationsSection />
-        <br />
-        <br />
-        <BusinessClassSection />
         <CarbonFootprintSection />
       </Paper>
       <FAQSection />

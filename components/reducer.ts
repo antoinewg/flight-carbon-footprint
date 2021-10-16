@@ -1,11 +1,5 @@
 import { Airport } from "@api/useAirports";
 
-export enum BusinessClass {
-  economy = "economy",
-  business = "business",
-  firstclass = "firstclass",
-}
-
 export enum TravelType {
   roundtrip = "roundtrip",
   oneway = "oneway",
@@ -18,7 +12,6 @@ interface Flight {
 }
 
 export interface State {
-  businessClass?: BusinessClass;
   flights: Array<Flight>;
   travelType: TravelType;
 }
@@ -31,7 +24,6 @@ export const initialState: State = {
 export type Action =
   | { type: "INIT" }
   | { type: "SELECT_TRAVEL_TYPE"; payload: TravelType }
-  | { type: "SELECT_BUSINESS_CLASS"; payload: BusinessClass }
   | { type: "ADD_NEW_FLIGHT" }
   | { type: "REMOVE_FLIGHTS_INDEX"; payload: number }
   | {
@@ -53,8 +45,6 @@ export const reducer = (state: State, action: Action): State => {
             ? [...state.flights, { from: null, to: null }]
             : state.flights.slice(0, 1),
       };
-    case "SELECT_BUSINESS_CLASS":
-      return { ...state, businessClass: action.payload };
     case "ADD_NEW_FLIGHT":
       return {
         ...state,
