@@ -30,6 +30,7 @@ export const DestinationInput = ({
       onChange={(_, airport) => airport && onSelect(airport)}
       onInputChange={(_, newInputValue) => setText(newInputValue)}
       getOptionLabel={(airport) => `${airport.iata} ${airport.name}`}
+      isOptionEqualToValue={(option, value) => option.iata === value.iata}
       renderInput={(params) => (
         <TextField {...params} label={label} placeholder="City or airport..." />
       )}
