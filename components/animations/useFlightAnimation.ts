@@ -5,7 +5,7 @@ import { FeatureCollection, LineString, Point } from "@turf/helpers";
 import { Airport } from "@api/useAirports";
 import { useFormState } from "../StateWrapper";
 
-interface CompleteFlight {
+interface CompletedFlight {
   from: Airport;
   to: Airport;
 }
@@ -29,15 +29,15 @@ export const useFlightAnimation = (map: Map | null) => {
 const usePlaneRoute = (): { plane: Plane | null; route: Route | null } => {
   const { state } = useFormState();
 
-  const completeFlights = state.flights.filter(
+  const completedFlights = state.flights.filter(
     ({ from, to }) => from && to
-  ) as CompleteFlight[];
+  ) as CompletedFlight[];
 
-  if (completeFlights.length === 0) return { route: null, plane: null };
+  if (completedFlights.length === 0) return { route: null, plane: null };
 
   const route: Route = {
     type: "FeatureCollection",
-    features: completeFlights.map(({ from, to }) => ({
+    features: completedFlights.map(({ from, to }) => ({
       type: "Feature",
       geometry: {
         type: "LineString",
@@ -52,7 +52,7 @@ const usePlaneRoute = (): { plane: Plane | null; route: Route | null } => {
 
   const plane: Plane = {
     type: "FeatureCollection",
-    features: completeFlights.map(({ from }) => ({
+    features: completedFlights.map(({ from }) => ({
       type: "Feature",
       geometry: {
         type: "Point",
