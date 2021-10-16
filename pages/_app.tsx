@@ -3,7 +3,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { indigo, green } from "@mui/material/colors";
 import type { AppProps } from "next/app";
-import Layout from "../components/Layout";
+import Layout from "@components/Layout";
 
 const theme = createTheme({
   palette: {
