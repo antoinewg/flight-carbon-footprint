@@ -27,6 +27,7 @@
     "@types/mapbox-gl": "^2.4.2",
     "@types/react": "17.0.30",
     "babel-jest": "^27.2.5",
+    "codecov": "^3.8.3",
     "eslint": "^8.0.1",
     "eslint-config-next": "11.1.2",
     "identity-obj-proxy": "^3.0.0",
