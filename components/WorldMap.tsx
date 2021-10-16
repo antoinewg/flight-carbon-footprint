@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import { useFlightAnimation } from "./animations/useFlightAnimation";
+import { useZoomToFlights } from "./animations/useZoomToFlights";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN as string;
 
@@ -20,6 +21,7 @@ export const WorldMap = () => {
   }, []);
 
   useFlightAnimation(map.current);
+  useZoomToFlights(map.current);
 
   return <div ref={mapContainerRef} style={mapStyle} />;
 };
