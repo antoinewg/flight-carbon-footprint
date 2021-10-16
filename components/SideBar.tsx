@@ -1,9 +1,9 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
 
-import BusinessClassSection from "../atoms/BusinessClassSection";
-import { TripTypeSection } from "../atoms/TripTypeSection";
-import { DestinationsSection } from "../atoms/DestinationsSection";
+import BusinessClassSection from "@atoms/BusinessClassSection";
+import { TripTypeSection } from "@atoms/TripTypeSection";
+import { DestinationsSection } from "@atoms/DestinationsSection";
 
 export const SideBar = () => {
   return (

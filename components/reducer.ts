@@ -1,4 +1,4 @@
-import { Airport } from "../api/useAirports";
+import { Airport } from "@api/useAirports";
 
 export enum BusinessClass {
   economy = "economy",

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import { Airport, useAirports } from "../api/useAirports";
-import { useDebounceValue } from "../hooks/useDebouncedValue";
+import { Airport, useAirports } from "@api/useAirports";
+import { useDebounceValue } from "@hooks/useDebouncedValue";
 
 interface DestinationInputProps {
   id: string;

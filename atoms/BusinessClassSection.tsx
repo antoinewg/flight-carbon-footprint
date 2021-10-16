@@ -4,8 +4,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { useFormState } from "../components/StateWrapper";
-import { BusinessClass } from "../components/reducer";
+import { useFormState } from "@components/StateWrapper";
+import { BusinessClass } from "@components/reducer";
 
 export default function BusinessClassSection() {
   const { state, dispatch } = useFormState();

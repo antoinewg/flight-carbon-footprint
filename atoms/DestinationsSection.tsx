@@ -9,8 +9,8 @@ import Add from "@mui/icons-material/Add";
 import Stack from "@mui/material/Stack";
 
 import { DestinationInput } from "./DestinationInput";
-import { useFormState } from "../components/StateWrapper";
-import { TravelType } from "../components/reducer";
+import { useFormState } from "@components/StateWrapper";
+import { TravelType } from "@components/reducer";
 
 export const DestinationsSection = () => {
   const { state, dispatch } = useFormState();

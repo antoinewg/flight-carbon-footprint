@@ -3,8 +3,8 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-import { useFormState } from "../components/StateWrapper";
-import { TravelType } from "../components/reducer";
+import { useFormState } from "@components/StateWrapper";
+import { TravelType } from "@components/reducer";
 
 export const TripTypeSection = () => {
   const { state, dispatch } = useFormState();
