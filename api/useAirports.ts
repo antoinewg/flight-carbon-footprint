@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
+import { logAnalyticsEvent } from "@utils/firebase";
 
 export interface Airport {
   icao: string;
@@ -25,6 +26,7 @@ export const useAirports = (query: string): Airport[] => {
   const getAirports = useCallback(async (q: string) => {
     if (!q || q.length < 3) return;
     try {
+      logAnalyticsEvent("airport_search", { query: q });
       const response = await axios.get<{ items: Airport[] }>(
         "https://aerodatabox.p.rapidapi.com/airports/search/term",
         { params: { q, limit: "10" }, headers }

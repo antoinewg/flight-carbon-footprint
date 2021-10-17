@@ -4,14 +4,20 @@ import {
   CO2_CONSUMPTION_PER_PAX_PER_HOUR_OF_FLIGHT,
 } from "./constants";
 import { distance, point } from "@turf/turf";
+import { useFormState } from "@components/StateWrapper";
+import { TravelType } from "@components/reducer";
+import { useEffect } from "react";
+import { logAnalyticsEvent } from "@utils/firebase";
 
 interface Flight {
   from: Airport;
   to: Airport;
 }
 
-// No need to be a hook but we were supposed to use an endpoint at first.
 export const useCarbonFootprint = (flights: Flight[]): number => {
+  const { state } = useFormState();
+  const isReturn = state.travelType === TravelType.roundtrip;
+
   let hoursFlying: number = 0;
 
   flights.forEach(({ from, to }) => {
@@ -21,7 +27,27 @@ export const useCarbonFootprint = (flights: Flight[]): number => {
       { units: "kilometers" }
     );
     hoursFlying += distanceKm / AVERAGE_AIRCRAFT_SPEED;
+    if (isReturn) hoursFlying *= 2;
   });
 
-  return hoursFlying * CO2_CONSUMPTION_PER_PAX_PER_HOUR_OF_FLIGHT;
+  const carbonFootprint =
+    hoursFlying * CO2_CONSUMPTION_PER_PAX_PER_HOUR_OF_FLIGHT;
+
+  useEffect(() => {
+    if (flights.length === 0) return;
+
+    logAnalyticsEvent("carbon_footprint", {
+      hoursFlying,
+      isReturn,
+      kg: Math.round(carbonFootprint),
+      flights: JSON.stringify(
+        flights.map(({ from, to }) => ({
+          from: from.iata,
+          to: to.iata,
+        }))
+      ),
+    });
+  }, [flights.length, carbonFootprint]);
+
+  return carbonFootprint;
 };

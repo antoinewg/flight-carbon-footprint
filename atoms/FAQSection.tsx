@@ -5,13 +5,16 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Paper from "@mui/material/Paper";
+import { logAnalyticsEvent } from "@utils/firebase";
 
 export const FAQSection = () => {
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
   const handleChange =
-    (panel: string) => (_: React.SyntheticEvent, isExpanded: boolean) =>
+    (panel: string) => (_: React.SyntheticEvent, isExpanded: boolean) => {
+      logAnalyticsEvent("consult_faq", { open: isExpanded });
       setExpanded(isExpanded ? panel : false);
+    };
 
   return (
     <Paper
@@ -43,7 +46,11 @@ export const FAQSection = () => {
           <Typography>
             Our assumption is that each passenger emits 250kg of CO&sup2; per
             hour of flight. This is taken from{" "}
-            <a href="https://www.carbonindependent.org/22.html" target="_blank">
+            <a
+              href="https://www.carbonindependent.org/22.html"
+              target="_blank"
+              onClick={() => logAnalyticsEvent("consult_carbon_independent")}
+            >
               carbonindependent.org
             </a>{" "}
             and seems coherent with other flight carbon emission calculators. We
@@ -56,6 +63,7 @@ export const FAQSection = () => {
             <a
               href="https://github.com/antoinewg/flight-carbon-footprint"
               target="_blank"
+              onClick={() => logAnalyticsEvent("consult_github")}
             >
               github.com
             </a>
