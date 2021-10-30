@@ -22,14 +22,12 @@ export const FAQSection = () => {
       sx={{
         position: "absolute",
         bottom: 0,
-        right: 0,
         zIndex: 2,
-        margin: 3,
-        backgroundColor: "transparent",
-        width: "33%",
-        justifyContent: "center",
+        margin: 2,
+        right: 0,
+        maxWidth: "400px",
       }}
-      elevation={0}
+      elevation={4}
     >
       <Accordion
         expanded={expanded === "panel1"}
