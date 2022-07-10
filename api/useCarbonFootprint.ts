@@ -81,7 +81,7 @@ export const useCarbonFootprint = (flights: Flight[]): number => {
   const [footprint, setFootprint] = useState<number>(0);
   const { state } = useFormState();
   const isReturn = state.travelType === TravelType.roundtrip
-  const legs: Leg[] = getLegs(flights, isReturn)
+  const allLegs: Leg[] = getLegs(flights, isReturn)
 
   const getFootprint = useCallback(async (legs: Leg[]) => {
     if (legs.length === 0) return;
@@ -106,8 +106,8 @@ export const useCarbonFootprint = (flights: Flight[]): number => {
   }, []);
 
   useEffect(() => {
-    getFootprint(legs);
-  }, [legs, getFootprint]);
+    getFootprint(allLegs);
+  }, [allLegs, getFootprint]);
 
   return footprint;
 };
