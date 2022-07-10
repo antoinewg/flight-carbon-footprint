@@ -34,7 +34,6 @@ jobs:
             - node_modules
       - run: yarn lint
       - run: yarn test
-      - run: yarn codecov
 
 workflows:
   version: 2.1
