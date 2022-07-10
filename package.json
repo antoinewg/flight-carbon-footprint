@@ -30,7 +30,6 @@
     "@types/react": "18.0.15",
     "@types/react-gauge-chart": "^0.3.1",
     "babel-jest": "^28.1.2",
-    "codecov": "^3.8.3",
     "eslint": "^8.19.0",
     "eslint-config-next": "12.1.7-canary.35",
     "identity-obj-proxy": "^3.0.0",
