@@ -20,7 +20,6 @@ export const StateWrapper = ({ children }: { children: JSX.Element }) => {
 };
 
 export const useFormState = (): Pick<IStateContext, "state" | "dispatch"> => {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { state, dispatch } = useContext(StateContext)!;
   return { state, dispatch };
 };
