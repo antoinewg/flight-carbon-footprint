@@ -2,7 +2,7 @@
 
 # ✈️ Flight Carbon Footprint
 
-[![CircleCI](https://circleci.com/gh/antoinewg/flight-carbon-footprint/tree/main.svg?style=svg)](https://circleci.com/gh/antoinewg/flight-carbon-footprint/tree/main) [![codecov](https://codecov.io/gh/antoinewg/flight-carbon-footprint/branch/main/graph/badge.svg?token=QU7S8NY9BH)](https://codecov.io/gh/antoinewg/flight-carbon-footprint)
+[![CircleCI](https://circleci.com/gh/antoinewg/flight-carbon-footprint/tree/main.svg?style=svg)](https://circleci.com/gh/antoinewg/flight-carbon-footprint/tree/main)
 
 </div>
 
