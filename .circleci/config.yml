@@ -19,7 +19,7 @@ yarn_install: &yarn_install
   command: yarn install --frozen-lockfile --non-interactive
 
 jobs:
-  install:
+  lint_test:
     <<: *defaults
     steps:
       - checkout
@@ -32,23 +32,7 @@ jobs:
           paths:
             - ~/.cache
             - node_modules
-  lint:
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          <<: *deploy_cache
-      - restore_cache:
-          <<: *yarn_cache
       - run: yarn lint
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          <<: *deploy_cache
-      - restore_cache:
-          <<: *yarn_cache
       - run: yarn test
       - run: yarn codecov
 
@@ -56,10 +40,4 @@ workflows:
   version: 2.1
   pr_check:
     jobs:
-      - install
-      - lint:
-          requires:
-            - install
-      - test:
-          requires:
-            - install
+      - lint_test
